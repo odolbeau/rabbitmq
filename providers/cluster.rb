@@ -94,7 +94,7 @@ def disc_nodes(cluster_status)
   result = match_pattern_cluster_status(cluster_status, pattern)
   Chef::Log.debug("[rabbitmq_cluster] disc_nodes : #{result}")
   if result.nil?
-    result = []
+    []
   else
     result.split(',')
   end
@@ -106,7 +106,7 @@ def ram_nodes(cluster_status)
   result = match_pattern_cluster_status(cluster_status, pattern)
   Chef::Log.debug("[rabbitmq_cluster] ram_nodes : #{result}")
   if result.nil?
-    result = []
+    []
   else
     result.split(',')
   end
