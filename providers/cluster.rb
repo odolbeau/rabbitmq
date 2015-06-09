@@ -85,7 +85,11 @@ def running_nodes(cluster_status)
   pattern = '({running_nodes,\[)(.*?)(\]})'
   result = match_pattern_cluster_status(cluster_status, pattern)
   Chef::Log.debug("[rabbitmq_cluster] running_nodes : #{result}")
-  result.split(',')
+  if result.nil?
+    result
+  else
+    result.split(',')
+  end
 end
 
 # Get disc nodes
