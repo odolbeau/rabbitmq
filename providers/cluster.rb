@@ -147,7 +147,12 @@ end
 
 # Checking node is joined in cluster
 def joined_cluster?(node_name, cluster_status)
-  running_nodes(cluster_status).include?(node_name)
+  nodes = running_nodes(cluster_status)
+  if nodes.nil?
+    false
+  else
+    nodes.include?(node_name)
+  end
 end
 
 # Join cluster.
